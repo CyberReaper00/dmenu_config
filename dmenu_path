@@ -6,15 +6,15 @@ cache="$cachedir/dmenu_run"
 [ ! -e "$cachedir" ] && mkdir -p "$cachedir"
 
 all_commands=$(awk '
-	/^name=/ { app = substr($0, index($0, "=") + 1); }
+	/^alias=/ { alias = substr($0, index($0, "=") + 1); }
 	/^cmds=/ {
 		cmd = substr($0, index($0, "=") + 1);
-		if (app == "") {
+		if (alias == "") {
 			print cmd
 		} else {
-			print cmd " & " app
+			print cmd " & " alias
 		}
-		app = ""
+		alias = ""
 	}
 ' commands.conf)
 
