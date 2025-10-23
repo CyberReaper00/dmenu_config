@@ -1,4 +1,6 @@
 # Commandbase Patch
+A simple patch to add arbitrary commands to dmenu
+
 A user might have many commands that they wish to execute but the list of "necessary" commands might grow to be too large at some point or even the command itself might be too large to type out everytime
 
 This patch allows the user to bake several commands of any length, along with an alias, and make it searchable in dmenu directly
