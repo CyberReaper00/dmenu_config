@@ -18,8 +18,6 @@ all_commands=$(awk '
 	}
 ' commands.conf)
 
-echo "$all_commands"
-
 IFS=:
 if stest -dqr -n "$cache" $PATH; then
 	stest -flx $PATH | sort -u | tee "$cache"
