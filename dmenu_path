@@ -16,7 +16,7 @@ all_commands=$(awk '
 		}
 		app = ""
 	}
-' command_file.txt)
+' commands.conf)
 
 echo "$all_commands"
 
