@@ -35,3 +35,8 @@ The alias parameter is optional and if the command itself has the name of the pr
 
 The alias is mostly useful in a situation where the program itself does not exist in the full command like in the example for a webapp below
 <img src='./youtube.png'>
+
+Another such example for making things easier would be opening a VM with specific settings and parameters directly from a command instead of opening a GUI and then turning it on like this,
+- `VBoxManage startvm "vm_1" --type separate & windows`
+
+In the above example a windows VM, that has already been setup, can just be launched with a singular action whenever the user feels like it
