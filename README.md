@@ -16,7 +16,7 @@ cmds=xterm -e nmtui
 ```
 
 This would be the output
-![[./nmtui1.png]]
+<img src='./nmtui1.png'>
 
 But alternatively in this example
 ```
@@ -25,11 +25,11 @@ cmds=xterm -e nmtui
 ```
 
 This would be the output
-![[./nmtui2.png]]
+<img src='./nmtui2.png'>
 
 To update the list in dmenu you just have to remove `~/.cache/dmenu_run` and then run `./dmenu_path` (from within your local dmenu directory) which will create a new file with the updated list that dmenu will use from now on
 
 The alias parameter is optional and if the command itself has the name of the program then it can be left empty, it is only provided for convenience
 
 The alias is mostly useful in a situation where the program itself does not exist in the full command like in the example for a webapp below
-![[./youtube.png]]
+<img src='./youtube.png'>
