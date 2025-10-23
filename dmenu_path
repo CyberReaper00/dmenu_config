@@ -1,0 +1,37 @@
+#!/bin/sh
+
+cachedir="${XDG_CACHE_HOME:-"$HOME/.cache"}"
+cache="$cachedir/dmenu_run"
+
+[ ! -e "$cachedir" ] && mkdir -p "$cachedir"
+
+all_commands=$(awk '
+	/^name=/ { app = substr($0, index($0, "=") + 1); }
+	/^cmds=/ {
+		cmd = substr($0, index($0, "=") + 1);
+		if (app == "") {
+			print cmd
+		} else {
+			print cmd " & " app
+		}
+		app = ""
+	}
+' command_file.txt)
+
+echo "$all_commands"
+
+IFS=:
+if stest -dqr -n "$cache" $PATH; then
+	stest -flx $PATH | sort -u | tee "$cache"
+	new=$(cat "$cache")
+
+	while IFS= read -r item
+	do
+		if [[ $new != *"$item" ]]; then
+			echo $item | tee -a "$cache"
+		fi
+	done <<< "$all_commands"
+
+else
+	cat $cache
+fi
